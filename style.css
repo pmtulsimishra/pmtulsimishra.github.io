@@ -248,6 +248,17 @@ a { text-decoration: none; color: inherit; }
   font-weight: 700;
   background: linear-gradient(135deg, #e8f0ff, #ede4ff);
   color: var(--accent);
+  overflow: hidden;
+}
+
+/* Real photo in the avatar circle */
+.avatar-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
 }
 
 .floating-card {
@@ -324,10 +335,50 @@ section { padding: 6rem 2rem; }
   font-size: 1.05rem;
 }
 
-.about-stats {
+/* Photo layout replacing old stats column */
+.about-photos {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 320px;
+  flex-shrink: 0;
+}
+
+.about-photo-main img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+}
+
+.about-photo-secondary {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.about-photo-secondary img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.about-stats-mini {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  gap: .75rem;
+}
+
+.about-stats-mini .stat {
+  padding: .85rem .75rem;
+}
+
+.about-stats-mini .stat-num {
+  font-size: 1.5rem;
 }
 
 .stat {
@@ -1182,7 +1233,9 @@ cite#stoic-author {
 @media (max-width: 1024px) {
   .cert-grid { grid-template-columns: repeat(2, 1fr); }
   .about-grid { grid-template-columns: 1fr; }
-  .about-stats { grid-template-columns: repeat(4, 1fr); }
+  .about-photos { width: 100%; flex-direction: row; flex-wrap: wrap; }
+  .about-photo-main, .about-photo-secondary { flex: 1; min-width: 260px; }
+  .about-stats-mini { grid-template-columns: repeat(4, 1fr); }
 }
 
 @media (max-width: 768px) {
