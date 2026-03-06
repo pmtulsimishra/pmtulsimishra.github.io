@@ -1,5 +1,4 @@
-# Auto-generated newsletter data (rebuilt daily by fetch_newsletters.py)
-newsletter_data.js
+# Legacy JSON backup (newsletter_data.js is now tracked and updated by CI)
 newsletter_data.json
 
 # Photos (large binaries — store separately)

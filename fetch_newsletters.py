@@ -17,6 +17,7 @@ To create one: myaccount.google.com > Security > App Passwords
 import imaplib
 import email
 import json
+import os
 import re
 import getpass
 import sys
@@ -195,23 +196,28 @@ def main():
     print("=" * 60)
     print()
 
-    app_password = keychain_get(KEYCHAIN_SERVICE, EMAIL_ADDRESS)
+    # Password lookup order: env var (CI) → Keychain (local) → interactive prompt
+    app_password = os.environ.get("GMAIL_APP_PASSWORD")
     if app_password:
-        print("🔑 Using saved App Password from macOS Keychain.")
+        print("🔑 Using App Password from environment variable.")
     else:
-        if not sys.stdin.isatty():
-            # Called non-interactively (e.g. from the browser refresh button)
-            print("❌ No App Password found in Keychain.")
-            print("   Run the script manually once to save it:")
-            print("   python3 fetch_newsletters.py")
-            sys.exit(2)
-        print("You need a Gmail App Password (not your regular password).")
-        print("Get one at: myaccount.google.com > Security > App Passwords")
-        print("It will be saved securely to your macOS Keychain for future runs.")
-        print()
-        app_password = getpass.getpass("Enter Gmail App Password: ")
-        keychain_set(KEYCHAIN_SERVICE, EMAIL_ADDRESS, app_password)
-        print("✅ Password saved to Keychain — you won't need to enter it again.")
+        app_password = keychain_get(KEYCHAIN_SERVICE, EMAIL_ADDRESS)
+        if app_password:
+            print("🔑 Using saved App Password from macOS Keychain.")
+        else:
+            if not sys.stdin.isatty():
+                # Called non-interactively (e.g. from the browser refresh button or CI)
+                print("❌ No App Password found in GMAIL_APP_PASSWORD env var or Keychain.")
+                print("   Run the script manually once to save it:")
+                print("   python3 fetch_newsletters.py")
+                sys.exit(2)
+            print("You need a Gmail App Password (not your regular password).")
+            print("Get one at: myaccount.google.com > Security > App Passwords")
+            print("It will be saved securely to your macOS Keychain for future runs.")
+            print()
+            app_password = getpass.getpass("Enter Gmail App Password: ")
+            keychain_set(KEYCHAIN_SERVICE, EMAIL_ADDRESS, app_password)
+            print("✅ Password saved to Keychain — you won't need to enter it again.")
 
     print("\n🔌 Connecting to Gmail IMAP…")
     try:
