@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tulsi Mishra — Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== SCREEN WRAPPER ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #eef0f5;
+      color: #1a1a2e;
+      min-height: 100vh;
+      padding: 2rem 1rem 4rem;
+    }
+
+    /* ===== PRINT TOOLBAR ===== */
+    .toolbar {
+      max-width: 900px;
+      margin: 0 auto 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .toolbar-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .back-link {
+      text-decoration: none;
+      color: #5a5a7a;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: #0f62fe; }
+
+    .toolbar-title {
+      font-size: 0.85rem;
+      color: #5a5a7a;
+    }
+
+    .print-btn {
+      background: linear-gradient(135deg, #0f62fe, #6929c4);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Inter', sans-serif;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px rgba(15,98,254,0.3);
+    }
+
+    .print-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* ===== RESUME PAPER ===== */
+    .resume {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+      overflow: hidden;
+    }
+
+    /* ===== HEADER ===== */
+    .resume-header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #0f62fe 100%);
+      color: white;
+      padding: 2.5rem 3rem 2rem;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+
+    .resume-name {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .resume-title {
+      font-size: 1rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.75);
+      margin-top: 0.4rem;
+      letter-spacing: 0.03em;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.35rem;
+    }
+
+    .contact-info a,
+    .contact-info span {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.82);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.15s;
+    }
+
+    .contact-info a:hover { color: white; }
+
+    .contact-icon { font-size: 0.85rem; opacity: 0.7; }
+
+    /* ===== BODY ===== */
+    .resume-body {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 0;
+    }
+
+    .main-col {
+      padding: 2.25rem 2.5rem 2.5rem;
+      border-right: 1px solid #e8ecf4;
+    }
+
+    .side-col {
+      padding: 2.25rem 1.75rem 2.5rem;
+      background: #f8faff;
+    }
+
+    /* ===== SECTION HEADINGS ===== */
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .section-heading {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #0f62fe;
+      border-bottom: 2px solid #0f62fe;
+      padding-bottom: 0.35rem;
+      margin-bottom: 1.1rem;
+    }
+
+    /* ===== SUMMARY ===== */
+    .summary-text {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: #3a3a5a;
+    }
+
+    /* ===== EXPERIENCE ===== */
+    .job {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #f0f2f8;
+    }
+
+    .job:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .job-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      line-height: 1.3;
+    }
+
+    .job-dates {
+      font-size: 0.75rem;
+      color: #0f62fe;
+      font-weight: 600;
+      white-space: nowrap;
+      padding: 0.15rem 0.6rem;
+      background: #e8f0ff;
+      border-radius: 100px;
+      flex-shrink: 0;
+    }
+
+    .job-company {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #5a5a7a;
+      margin-bottom: 0.6rem;
+    }
+
+    .job-bullets {
+      list-style: none;
+      padding: 0;
+    }
+
+    .job-bullets li {
+      font-size: 0.83rem;
+      line-height: 1.65;
+      color: #3a3a5a;
+      padding-left: 1.1rem;
+      position: relative;
+      margin-bottom: 0.3rem;
+    }
+
+    .job-bullets li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #0f62fe;
+      font-size: 0.7rem;
+      top: 0.2rem;
+    }
+
+    /* ===== SIDEBAR ===== */
+    .side-section {
+      margin-bottom: 1.75rem;
+    }
+
+    /* SKILLS */
+    .skill-group {
+      margin-bottom: 1rem;
+    }
+
+    .skill-group-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 0.35rem;
+    }
+
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    .skill-pill {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: #1a1a2e;
+      background: #e8ecf4;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+    }
+
+    /* EDUCATION */
+    .edu-item {
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #e8ecf4;
+    }
+
+    .edu-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .edu-degree {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      line-height: 1.35;
+      margin-bottom: 0.2rem;
+    }
+
+    .edu-school {
+      font-size: 0.77rem;
+      color: #5a5a7a;
+      font-weight: 500;
+      margin-bottom: 0.15rem;
+    }
+
+    .edu-meta {
+      font-size: 0.72rem;
+      color: #0f62fe;
+      font-weight: 600;
+    }
+
+    /* CERTS */
+    .cert-list {
+      list-style: none;
+    }
+
+    .cert-list li {
+      font-size: 0.8rem;
+      color: #3a3a5a;
+      padding: 0.3rem 0;
+      border-bottom: 1px solid #e8ecf4;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      line-height: 1.4;
+    }
+
+    .cert-list li:last-child { border-bottom: none; }
+
+    .cert-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #0f62fe;
+      flex-shrink: 0;
+    }
+
+    /* AWARDS */
+    .award-list {
+      list-style: none;
+    }
+
+    .award-list li {
+      font-size: 0.78rem;
+      color: #3a3a5a;
+      padding: 0.28rem 0;
+      border-bottom: 1px solid #e8ecf4;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      line-height: 1.4;
+    }
+
+    .award-list li:last-child { border-bottom: none; }
+
+    .award-star { color: #f0a500; font-size: 0.7rem; flex-shrink: 0; margin-top: 0.15rem; }
+
+    /* LANGUAGES */
+    .lang-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .lang-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+
+    .lang-name { color: #1a1a2e; font-weight: 500; }
+
+    .lang-bar-wrap {
+      flex: 1;
+      height: 4px;
+      background: #e8ecf4;
+      border-radius: 2px;
+      margin: 0 0.75rem;
+      overflow: hidden;
+    }
+
+    .lang-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #0f62fe, #6929c4);
+      border-radius: 2px;
+    }
+
+    /* ===== PRINT STYLES ===== */
+    @media print {
+      @page {
+        size: A4;
+        margin: 14mm 14mm 14mm 14mm;
+      }
+
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .toolbar { display: none !important; }
+
+      .resume {
+        box-shadow: none;
+        border-radius: 0;
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .resume-header {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        padding: 1.5rem 2rem 1.25rem;
+      }
+
+      .resume-name { font-size: 1.9rem; }
+      .resume-title { font-size: 0.88rem; }
+
+      .main-col { padding: 1.5rem 2rem 2rem; }
+      .side-col { padding: 1.5rem 1.5rem 2rem; }
+
+      .job { margin-bottom: 1.1rem; padding-bottom: 1.1rem; }
+      .job-title { font-size: 0.88rem; }
+      .job-bullets li { font-size: 0.78rem; }
+
+      .section-heading {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .job-dates {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .side-col {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      a { color: inherit !important; text-decoration: none; }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 700px) {
+      .resume-body { grid-template-columns: 1fr; }
+      .main-col { border-right: none; border-bottom: 1px solid #e8ecf4; padding: 1.75rem 1.5rem; }
+      .side-col { padding: 1.75rem 1.5rem; background: white; }
+      .header-top { flex-direction: column; }
+      .contact-info { align-items: flex-start; }
+      .resume-header { padding: 2rem 1.5rem 1.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOOLBAR (screen only) -->
+  <div class="toolbar">
+    <div class="toolbar-left">
+      <a href="index.html" class="back-link">&#8592; Back to site</a>
+      <span class="toolbar-title">Tulsi Mishra &mdash; Resume</span>
+    </div>
+    <button class="print-btn" onclick="window.print()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      Print / Save as PDF
+    </button>
+  </div>
+
+  <!-- RESUME -->
+  <div class="resume">
+
+    <!-- HEADER -->
+    <div class="resume-header">
+      <div class="header-top">
+        <div>
+          <div class="resume-name">Tulsi Mishra</div>
+          <div class="resume-title">Senior Product Manager &nbsp;·&nbsp; HPC, AI &amp; Cloud &nbsp;·&nbsp; Hewlett Packard Enterprise</div>
+        </div>
+        <div class="contact-info">
+          <span><span class="contact-icon">&#128205;</span> Stockholm, Sweden</span>
+          <a href="tel:+15203698745"><span class="contact-icon">&#128222;</span> +1 (520) 369-8745</a>
+          <a href="mailto:mishratulsi1991@gmail.com"><span class="contact-icon">&#9993;</span> mishratulsi1991@gmail.com</a>
+          <a href="https://www.linkedin.com/in/tmishra1992" target="_blank"><span class="contact-icon">&#128279;</span> linkedin.com/in/tmishra1992</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BODY -->
+    <div class="resume-body">
+
+      <!-- MAIN COLUMN -->
+      <div class="main-col">
+
+        <!-- SUMMARY -->
+        <div class="section">
+          <div class="section-heading">Professional Summary</div>
+          <p class="summary-text">Senior Product Manager with 9+ years of experience in HPC, AI, and cloud software, specializing in product strategy, roadmap execution, and cross-functional collaboration. Proven expertise in hybrid AI-HPC workload optimization, container orchestration, and software innovation. Experienced in cybersecurity, cloud computing, open-source technologies, and product lifecycle management.</p>
+        </div>
+
+        <!-- EXPERIENCE -->
+        <div class="section">
+          <div class="section-heading">Professional Experience</div>
+
+          <div class="job">
+            <div class="job-header">
+              <div class="job-title">Senior Product Manager, HPC and AI</div>
+              <span class="job-dates">Feb 2024 – Present</span>
+            </div>
+            <div class="job-company">Hewlett Packard Enterprise &nbsp;·&nbsp; Plano, TX</div>
+            <ul class="job-bullets">
+              <li>Define product strategy and multi-year roadmap direction for HPE HPC software based on market trends, customer needs, and competitive analysis</li>
+              <li>Author product vision, strategy documents, and market research to shape competitive positioning in next-generation HPC and AI computing</li>
+              <li>Identify and prioritize growth opportunities and emerging technologies to evolve the HPE HPC software portfolio</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-header">
+              <div class="job-title">Product Manager, HPC and AI</div>
+              <span class="job-dates">Apr 2022 – Feb 2024</span>
+            </div>
+            <div class="job-company">Hewlett Packard Enterprise &nbsp;·&nbsp; Plano, TX</div>
+            <ul class="job-bullets">
+              <li>Executed and maintained software product roadmaps aligned with HPC and AI workload requirements for HPE Cray Supercomputing environments</li>
+              <li>Managed the full product lifecycle from prototyping to GA and deployment, coordinating closely with engineering</li>
+              <li>Led software new product introductions (NPI), ensuring successful delivery and adoption across HPC and AI customers</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-header">
+              <div class="job-title">Manager, Data Analytics and Management</div>
+              <span class="job-dates">Jan 2020 – Apr 2022</span>
+            </div>
+            <div class="job-company">PennyMac Loan Services &nbsp;·&nbsp; Dallas, TX</div>
+            <ul class="job-bullets">
+              <li>Coordinated migration of on-premise databases and servers to AWS, maintaining change control through GitHub and TFS</li>
+              <li>Managed new product development and maintained product backlogs by performing end-to-end analysis</li>
+              <li>Maintained and developed ETL packages to support server and data management teams</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-header">
+              <div class="job-title">Technical Product Manager</div>
+              <span class="job-dates">May 2019 – Dec 2019</span>
+            </div>
+            <div class="job-company">Boeing &nbsp;·&nbsp; Denver, CO</div>
+            <ul class="job-bullets">
+              <li>Defined system architecture and database design across 8 teams, reducing tables and views by 60%</li>
+              <li>Facilitated retirement of two redundant applications, reducing cost by $50,000 by identifying linkages and dependencies</li>
+              <li>Developed reports and presentations for products and maintained product vision through updates and revisions</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-header">
+              <div class="job-title">Technical Product Manager</div>
+              <span class="job-dates">Sep 2013 – Jun 2017</span>
+            </div>
+            <div class="job-company">Royal Bank of Canada</div>
+            <ul class="job-bullets">
+              <li>Translated and groomed more than 1,000 product features into user stories while maintaining the backlog</li>
+              <li>Reduced time by more than 10% and saved $1,500,000 by implementing process automation</li>
+              <li>Managed resource and capacity planning; supported development and QA teams to ensure product stability</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-header">
+              <div class="job-title">Technical PM Intern &nbsp;/&nbsp; PM Intern</div>
+              <span class="job-dates">May 2018 – Dec 2018</span>
+            </div>
+            <div class="job-company">Vantage West Credit Union &amp; House Trevethan &nbsp;·&nbsp; Tucson, AZ</div>
+            <ul class="job-bullets">
+              <li>Enhanced company intranet by integrating Office 365 with SharePoint online, delivering $250k in cost savings at Vantage West</li>
+              <li>Created RFPs at House Trevethan to help secure two new accounts valued at $200,000</li>
+              <li>Implemented Google Analytics in SharePoint to improve search functionality and user experience</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SIDE COLUMN -->
+      <div class="side-col">
+
+        <!-- SKILLS -->
+        <div class="side-section">
+          <div class="section-heading">Skills &amp; Expertise</div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">HPC &amp; AI</div>
+            <div class="skill-pills">
+              <span class="skill-pill">HPC Systems</span>
+              <span class="skill-pill">AI Enablement</span>
+              <span class="skill-pill">Linux</span>
+              <span class="skill-pill">OS Optimization</span>
+              <span class="skill-pill">Cray Supercomputing</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">Product Management</div>
+            <div class="skill-pills">
+              <span class="skill-pill">Product Strategy</span>
+              <span class="skill-pill">Roadmap Execution</span>
+              <span class="skill-pill">NPI</span>
+              <span class="skill-pill">Agile / Scrum</span>
+              <span class="skill-pill">Financial Modeling</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">Cloud &amp; Infrastructure</div>
+            <div class="skill-pills">
+              <span class="skill-pill">AWS</span>
+              <span class="skill-pill">Kubernetes</span>
+              <span class="skill-pill">Virtualization</span>
+              <span class="skill-pill">SharePoint</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">Tools &amp; Languages</div>
+            <div class="skill-pills">
+              <span class="skill-pill">Python</span>
+              <span class="skill-pill">R</span>
+              <span class="skill-pill">Java</span>
+              <span class="skill-pill">PL/SQL</span>
+              <span class="skill-pill">Jira</span>
+              <span class="skill-pill">Confluence</span>
+              <span class="skill-pill">Tableau</span>
+              <span class="skill-pill">Visio</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- EDUCATION -->
+        <div class="side-section">
+          <div class="section-heading">Education</div>
+
+          <div class="edu-item">
+            <div class="edu-degree">MBA &amp; MS — Management Information Systems</div>
+            <div class="edu-school">University of Arizona, Eller College of Management</div>
+            <div class="edu-meta">GPA: 3.9 / 4.0 &nbsp;·&nbsp; Dec 2019</div>
+          </div>
+
+          <div class="edu-item">
+            <div class="edu-degree">B.Tech — Electrical &amp; Electronics Engineering</div>
+            <div class="edu-school">Veer Surendra Sai University of Technology, India</div>
+            <div class="edu-meta">GPA: 3.8 / 4.0 &nbsp;·&nbsp; May 2013</div>
+          </div>
+        </div>
+
+        <!-- CERTIFICATIONS -->
+        <div class="side-section">
+          <div class="section-heading">Certifications</div>
+          <ul class="cert-list">
+            <li><span class="cert-dot"></span>Project Management Professional (PMP)</li>
+            <li><span class="cert-dot"></span>PMI Agile Certified Practitioner (PMI-ACP)</li>
+            <li><span class="cert-dot"></span>Certified Scrum Product Owner (CSPO)</li>
+            <li><span class="cert-dot"></span>Certified ScrumMaster (CSM)</li>
+            <li><span class="cert-dot"></span>AWS Solutions Architect</li>
+            <li><span class="cert-dot"></span>Oracle Cloud Infrastructure Foundations</li>
+          </ul>
+        </div>
+
+        <!-- AWARDS -->
+        <div class="side-section">
+          <div class="section-heading">Awards &amp; Honors</div>
+          <ul class="award-list">
+            <li><span class="award-star">&#9733;</span>Best Servant Leader — Eller, 2019</li>
+            <li><span class="award-star">&#9733;</span>Student of the Semester — Eller, 2019</li>
+            <li><span class="award-star">&#9733;</span>Finalist, Conscious Capitalism Competition</li>
+            <li><span class="award-star">&#9733;</span>Finalist, VCIC Case Competition</li>
+            <li><span class="award-star">&#9733;</span>3rd Place, ACHE Case Competition</li>
+            <li><span class="award-star">&#9733;</span>GMAT: 700 &nbsp;·&nbsp; TOEFL: 112</li>
+          </ul>
+        </div>
+
+        <!-- LANGUAGES -->
+        <div class="side-section">
+          <div class="section-heading">Languages</div>
+          <div class="lang-list">
+            <div class="lang-item">
+              <span class="lang-name">English</span>
+              <div class="lang-bar-wrap"><div class="lang-bar-fill" style="width:100%"></div></div>
+            </div>
+            <div class="lang-item">
+              <span class="lang-name">Hindi</span>
+              <div class="lang-bar-wrap"><div class="lang-bar-fill" style="width:95%"></div></div>
+            </div>
+            <div class="lang-item">
+              <span class="lang-name">Odia</span>
+              <div class="lang-bar-wrap"><div class="lang-bar-fill" style="width:95%"></div></div>
+            </div>
+            <div class="lang-item">
+              <span class="lang-name">Spanish</span>
+              <div class="lang-bar-wrap"><div class="lang-bar-fill" style="width:60%"></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /side-col -->
+    </div><!-- /resume-body -->
+  </div><!-- /resume -->
+
+</body>
+</html>

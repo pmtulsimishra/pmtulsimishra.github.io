@@ -1,0 +1,17 @@
+# Auto-generated newsletter data (rebuilt daily by fetch_newsletters.py)
+newsletter_data.js
+newsletter_data.json
+
+# Photos (large binaries — store separately)
+photos/
+
+# Resume source doc
+resume.docx
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Python
+__pycache__/
+*.pyc
