@@ -351,7 +351,7 @@ section { padding: 6rem 2rem; }
 
 .about-gallery img {
   width: 100%;
-  height: 180px;
+  height: 140px;
   object-fit: cover;
   object-position: center 40%;
   border-radius: var(--radius);
@@ -998,7 +998,7 @@ footer {
 .travel-photos img,
 .gym-photos img {
   width: 100%;
-  height: 120px;
+  height: 90px;
   object-fit: cover;
   object-position: center 30%;
   display: block;
@@ -1305,8 +1305,8 @@ cite#stoic-author {
 }
 
 @media (max-width: 768px) {
-  .about-gallery { grid-template-columns: repeat(2, 1fr); }
-  .about-gallery img { height: 140px; }
+  .about-gallery { grid-template-columns: repeat(4, 1fr); }
+  .about-gallery img { height: 110px; }
 }
 
 @media (max-width: 480px) {
@@ -1318,7 +1318,7 @@ cite#stoic-author {
   .stoic-pillars { grid-template-columns: repeat(2, 1fr); }
   .gym-photos { grid-template-columns: 1fr; }
   .about-gallery { grid-template-columns: repeat(2, 1fr); }
-  .about-gallery img { height: 120px; }
+  .about-gallery img { height: 100px; }
 }
 
 @media (max-width: 1024px) {
