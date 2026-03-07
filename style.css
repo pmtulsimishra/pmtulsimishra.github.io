@@ -61,14 +61,34 @@ a { text-decoration: none; color: inherit; }
 }
 
 .nav-logo {
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--primary);
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
   margin-right: auto;
+  display: flex;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.logo-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  -webkit-text-fill-color: white;
+  font-weight: 900;
+  font-size: 0.8rem;
+  letter-spacing: -0.5px;
+  font-family: var(--font);
+  box-shadow: 0 4px 14px rgba(15,98,254,0.28);
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.nav-logo:hover .logo-badge {
+  transform: rotate(-5deg) scale(1.1);
+  box-shadow: 0 6px 22px rgba(105,41,196,0.45);
 }
 
 .nav-links {
@@ -220,19 +240,20 @@ a { text-decoration: none; color: inherit; }
   width: 220px;
   height: 220px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
+  background: conic-gradient(from 210deg, #0f62fe 0deg, #6929c4 100deg, #c026d3 180deg, #f97316 250deg, #eab308 300deg, #0f62fe 360deg);
   padding: 4px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0 20px 60px rgba(15,98,254,0.25);
-  animation: pulse-ring 3s ease-in-out infinite;
+  box-shadow: 0 20px 60px rgba(15,98,254,0.3);
+  animation: pulse-ring 4s ease-in-out infinite;
 }
 
 @keyframes pulse-ring {
-  0%, 100% { box-shadow: 0 20px 60px rgba(15,98,254,0.25); }
-  50% { box-shadow: 0 20px 80px rgba(105,41,196,0.4); }
+  0%,  100% { box-shadow: 0 20px 60px rgba(15,98,254,0.3); }
+  33%       { box-shadow: 0 20px 80px rgba(192,38,211,0.45); }
+  66%       { box-shadow: 0 20px 80px rgba(249,115,22,0.38); }
 }
 
 .avatar {
@@ -1292,6 +1313,51 @@ cite#stoic-author {
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ===========================
+   HERO BACKGROUND RADIAL GLOW
+   =========================== */
+#hero {
+  background:
+    radial-gradient(ellipse 900px 600px at 80% 35%, rgba(15,98,254,0.055) 0%, transparent 60%),
+    radial-gradient(ellipse 700px 500px at 10% 85%, rgba(105,41,196,0.065) 0%, transparent 60%),
+    white;
+}
+
+/* ===========================
+   SECTION COLOR PALETTE
+   =========================== */
+#about        { background: linear-gradient(160deg, #fafcff  0%, #f3eeff  100%); }
+#experience   { background: linear-gradient(160deg, #eef5ff  0%, #dce9ff  100%); }
+#education    { background: linear-gradient(160deg, #f0fdf5  0%, #e3f9ec  100%); }
+#certifications { background: linear-gradient(160deg, #f5f0ff 0%, #ede4ff 100%); }
+#awards       { background: linear-gradient(160deg, #fffbf0  0%, #fff3d4  100%); }
+#volunteer    { background: linear-gradient(160deg, #f0f9ff  0%, #dff0fe  100%); }
+#interests    { background: linear-gradient(160deg, #fff0f7  0%, #ffddf0  100%); }
+#stoic        { background: linear-gradient(160deg, #0d0d22  0%, #18083a  100%); }
+#ama          { background: linear-gradient(160deg, #fffef5  0%, #fff8e0  100%); }
+#contact      { background: linear-gradient(160deg, #eef4ff  0%, #ddeaff  100%); }
+
+/* Stoic dark section — override text colours */
+#stoic .section-title  { color: #ffffff; }
+#stoic .section-label  { color: #a78bfa; }
+#stoic .stoic-intro    { color: rgba(255,255,255,0.72); }
+
+/* ===========================
+   WAVE SECTION DIVIDERS
+   =========================== */
+.wave-sep {
+  display: block;
+  overflow: hidden;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+}
+.wave-sep svg {
+  display: block;
+  width: 100%;
+  height: 72px;
 }
 
 /* ===========================
