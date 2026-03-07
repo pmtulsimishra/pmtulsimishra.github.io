@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What People Say — Tulsi Mishra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ===========================
+       TESTIMONIALS PAGE
+       =========================== */
+
+    /* Override global section padding so dark bg goes truly edge-to-edge */
+    section.t-hero,
+    section.t-body { padding-left: 0; padding-right: 0; }
+
+    .t-hero {
+      padding: 7rem 0 4rem;
+      background: linear-gradient(160deg, #0d0d22 0%, #18083a 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      margin: 0;
+    }
+
+    /* Inner wrapper constrains content width, not the section bg */
+    .t-hero-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+    }
+
+    /* Match navbar to dark hero so no white strip at top */
+    #navbar {
+      background: rgba(13, 13, 34, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    #navbar.scrolled {
+      background: rgba(13, 13, 34, 0.97);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.3);
+    }
+    #navbar .nav-links a { color: rgba(255,255,255,0.72); }
+    #navbar .nav-links a:hover { color: #ffffff; }
+
+    .t-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 700px 400px at 70% 40%, rgba(105,41,196,0.22) 0%, transparent 60%),
+        radial-gradient(ellipse 500px 350px at 20% 70%, rgba(15,98,254,0.16) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .t-hero .section-label {
+      color: #a78bfa;
+      margin-bottom: 0.75rem;
+      position: relative;
+    }
+
+    .t-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      color: #ffffff;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .t-hero h1 .accent {
+      background: linear-gradient(135deg, #818cf8, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .t-hero p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.68);
+      max-width: 520px;
+      margin: 0 auto 2rem;
+      position: relative;
+    }
+
+    .t-hero .linkedin-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.88);
+      padding: 0.55rem 1.25rem;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .t-hero .linkedin-link:hover {
+      background: rgba(255,255,255,0.18);
+      border-color: rgba(255,255,255,0.4);
+    }
+
+    /* Wave after hero */
+    .t-wave {
+      display: block;
+      overflow: hidden;
+      line-height: 0;
+      margin: 0;
+      padding: 0;
+      background: #18083a;
+    }
+    .t-wave svg { display: block; width: 100%; height: 60px; }
+
+    /* Main content */
+    .t-body {
+      background: linear-gradient(160deg, #fafcff 0%, #f3eeff 100%);
+      padding: 4rem 0 6rem;
+    }
+
+    .t-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .t-count {
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+    }
+
+    /* Testimonial cards */
+    .t-grid {
+      display: grid;
+      gap: 1.75rem;
+    }
+
+    .t-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem 2.75rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .t-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .t-quote-mark {
+      font-family: var(--font-display);
+      font-size: 5rem;
+      line-height: 0.6;
+      color: var(--primary);
+      opacity: 0.15;
+      position: absolute;
+      top: 2rem;
+      left: 2.25rem;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .t-text {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--text);
+      font-style: italic;
+      padding-left: 1rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .t-person {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .t-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .t-person-info { flex: 1; }
+
+    .t-name {
+      font-weight: 700;
+      font-size: 0.97rem;
+      color: var(--text);
+      margin-bottom: 0.1rem;
+    }
+
+    .t-role {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .t-relation {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(15,98,254,0.07);
+      color: var(--primary);
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      flex-shrink: 0;
+    }
+
+    /* CTA strip */
+    .t-cta {
+      text-align: center;
+      margin-top: 3.5rem;
+    }
+
+    .t-cta p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 1rem;
+    }
+
+    .t-cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--primary);
+      color: white;
+      padding: 0.7rem 1.75rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .t-cta a:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 640px) {
+      .t-card { padding: 2rem 1.5rem; }
+      .t-relation { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><span class="logo-badge">TM</span></a>
+      <ul class="nav-links">
+        <li class="nav-dropdown">
+          <a href="index.html#about">About <span class="nav-arrow">▾</span></a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="index.html#about">About Me</a></li>
+            <li><a href="index.html#experience">Experience</a></li>
+            <li><a href="index.html#education">Education</a></li>
+            <li><a href="index.html#certifications">Certifications</a></li>
+            <li><a href="index.html#awards">Awards</a></li>
+            <li><a href="index.html#interests">Interests</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+          </ul>
+        </li>
+        <li><a href="newsletter.html" target="_blank">Newsletter</a></li>
+        <li><a href="books.html" target="_blank">Reading List</a></li>
+        <li><a href="resume.html" target="_blank" class="nav-resume-btn">Resume</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="t-hero">
+    <div class="t-hero-inner">
+      <div class="section-label">Social Proof</div>
+      <h1>What <span class="accent">People Say</span></h1>
+      <p>Perspectives from colleagues, managers, and mentors who've worked alongside me across HPE, Boeing, and beyond.</p>
+      <a href="https://www.linkedin.com/in/tmishra1992/" target="_blank" class="linkedin-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        View all on LinkedIn
+      </a>
+    </div>
+  </section>
+
+  <!-- WAVE -->
+  <div class="t-wave">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,20 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#fafcff"/>
+    </svg>
+  </div>
+
+  <!-- TESTIMONIALS BODY -->
+  <section class="t-body">
+    <div class="t-container">
+
+      <div class="t-count">6 recommendations · from colleagues, managers &amp; mentors</div>
+
+      <div class="t-grid">
+
+        <!-- 1 · Nilesh Chopadkar -->
+        <div class="t-card">
+          <div class="t-quote-mark">"</div>
+          <p class="t-text">I have had the privilege of working with Tulsi Mishra for more than 2 years. Through these years I have seen Tulsi grow — both as a software professional and a human being. Tulsi is an exceptional communicator. During the days we were working on the Fee Billing Project, he had built an impeccable rapport with the client. It was his exceptional analytical ability that put the client in a comfort zone as far as quality of the product was concerned. He has received many client appreciations for his brilliant work ethics. His involvement in various CSR activities brings out his leadership skills, as he drives most of them from the front. As a pragmatic leader and a realist, he can grasp ideas in a holistic manner and still pay attention to minor details. Tulsi is known as diligent and personable — two qualities that define him completely. As a creative thinker who possesses a can-do attitude, Tulsi Mishra is a pleasure to work with. I recommend him for a software professional who also possesses strong business acumen, at any organisation that chooses to take benefit from his diverse skills.</p>
+          <div class="t-person">
+            <div class="t-avatar">NC</div>
+            <div class="t-person-info">
+              <div class="t-name">Nilesh Chopadkar</div>
+              <div class="t-role">Senior Business Analyst · Banking Circle &nbsp;·&nbsp; <em>Tata Consultancy Services</em></div>
+            </div>
+            <span class="t-relation">Direct Manager</span>
+          </div>
+        </div>
+
+        <!-- 2 · Leslie Tung -->
+        <div class="t-card">
+          <div class="t-quote-mark">"</div>
+          <p class="t-text">Tulsi Mishra is a valued member of the product management team. He is always ready for a new challenge and has the analytical skills to drive to solution. He is a lifelong learner who pursues technical areas that are of interest to him and may have current and future relevance to his career. Tulsi is a strong team player and team leader. I have enjoyed working with him and appreciate his positive spirit to strive for better.</p>
+          <div class="t-person">
+            <div class="t-avatar">LT</div>
+            <div class="t-person-info">
+              <div class="t-name">Leslie Tung</div>
+              <div class="t-role">Product Management · Hewlett Packard Enterprise</div>
+            </div>
+            <span class="t-relation">Colleague</span>
+          </div>
+        </div>
+
+        <!-- 3 · Terence Yu -->
+        <div class="t-card">
+          <div class="t-quote-mark">"</div>
+          <p class="t-text">I had the opportunity to work with Tulsi this summer when he interned for Vantage West. He is a great individual to work with and is always proactive. He has a sense of collaboration and his project management skills are praiseworthy. I wish Tulsi all the best for his future endeavors.</p>
+          <div class="t-person">
+            <div class="t-avatar">TY</div>
+            <div class="t-person-info">
+              <div class="t-name">Terence Yu</div>
+              <div class="t-role">AVP, Software Engineering · Vantage West Credit Union</div>
+            </div>
+            <span class="t-relation">Direct Manager</span>
+          </div>
+        </div>
+
+        <!-- 4 · Harshil Goyal -->
+        <div class="t-card">
+          <div class="t-quote-mark">"</div>
+          <p class="t-text">Tulsi impressed me by his ability to solve complex problems. He consistently went the extra mile and developed an enterprise schema on his own during his internship with Boeing. He has a knack of being positive in all situations and doesn't get ruffled one bit. He is an achiever and someone who should be part of everyone's team. Tulsi has my heartfelt recommendation!</p>
+          <div class="t-person">
+            <div class="t-avatar">HG</div>
+            <div class="t-person-info">
+              <div class="t-name">Harshil Goyal</div>
+              <div class="t-role">Supervisor · The Boeing Company</div>
+            </div>
+            <span class="t-relation">Direct Manager</span>
+          </div>
+        </div>
+
+        <!-- 5 · Jill Casey Pintor -->
+        <div class="t-card">
+          <div class="t-quote-mark">"</div>
+          <p class="t-text">Tulsi was instrumental in helping our SharePoint Administrator enhance the search functionality and home page display on our recently launched SharePoint site. Aside from that, he was a pleasure to work with. As a side note, we were happy to have him on our side for the "Marshmallow Challenge" team building exercise, which we won!</p>
+          <div class="t-person">
+            <div class="t-avatar">JP</div>
+            <div class="t-person-info">
+              <div class="t-name">Jill Casey Pintor</div>
+              <div class="t-role">PR Collaborator &amp; Strategic Thought Leader · Vantage West Credit Union</div>
+            </div>
+            <span class="t-relation">Senior Colleague</span>
+          </div>
+        </div>
+
+        <!-- 6 · Bharadwaj Kanukolanu -->
+        <div class="t-card">
+          <div class="t-quote-mark">"</div>
+          <p class="t-text">I worked with Tulsi for a short period of time. But it was enough to realize how talented and dedicated he was. He has great leadership and technical skills which makes him an asset for any organization.</p>
+          <div class="t-person">
+            <div class="t-avatar">BK</div>
+            <div class="t-person-info">
+              <div class="t-name">Bharadwaj Kanukolanu</div>
+              <div class="t-role">IT Risk &amp; GRC Professional · Banking &amp; Telecom</div>
+            </div>
+            <span class="t-relation">Direct Manager</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA -->
+      <div class="t-cta">
+        <p>Connect on LinkedIn to see the full profiles</p>
+        <a href="https://www.linkedin.com/in/tmishra1992/" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          View on LinkedIn
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    // Nav scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Mobile nav toggle
+    document.querySelector('.nav-toggle').addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>
