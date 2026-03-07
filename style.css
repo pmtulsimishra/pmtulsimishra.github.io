@@ -968,6 +968,41 @@ footer {
   line-height: 1.65;
 }
 
+/* Book recommendations in interest card */
+.book-reco-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.book-reco {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.book-reco span strong {
+  color: var(--text);
+}
+
+.book-reco-link {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-top: 0.25rem;
+  transition: var(--transition);
+}
+
+.book-reco-link:hover {
+  color: var(--accent);
+  transform: translateX(3px);
+}
+
 .travel-tags {
   display: flex;
   flex-wrap: wrap;
