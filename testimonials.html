@@ -35,11 +35,15 @@
       position: relative;
     }
 
-    /* Match navbar to dark hero so no white strip at top */
+    /* Body background = dark so no white ever bleeds around the hero */
+    body { background: #0d0d22; }
+
+    /* Match navbar to dark hero — seamless top */
     #navbar {
       background: rgba(13, 13, 34, 0.92);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
+      border-bottom-color: rgba(255,255,255,0.08);
     }
     #navbar.scrolled {
       background: rgba(13, 13, 34, 0.97);
@@ -47,6 +51,10 @@
     }
     #navbar .nav-links a { color: rgba(255,255,255,0.72); }
     #navbar .nav-links a:hover { color: #ffffff; }
+    /* Keep dropdown panel text dark (white bg panel on dark navbar) */
+    #navbar .nav-dropdown-menu { background: rgba(255,255,255,0.97); }
+    #navbar .nav-dropdown-menu li a { color: var(--text-muted); }
+    #navbar .nav-dropdown-menu li a:hover { color: var(--primary); }
 
     .t-hero::before {
       content: '';
@@ -325,21 +333,7 @@
 
       <div class="t-grid">
 
-        <!-- 1 · Nilesh Chopadkar -->
-        <div class="t-card">
-          <div class="t-quote-mark">"</div>
-          <p class="t-text">I have had the privilege of working with Tulsi Mishra for more than 2 years. Through these years I have seen Tulsi grow — both as a software professional and a human being. Tulsi is an exceptional communicator. During the days we were working on the Fee Billing Project, he had built an impeccable rapport with the client. It was his exceptional analytical ability that put the client in a comfort zone as far as quality of the product was concerned. He has received many client appreciations for his brilliant work ethics. His involvement in various CSR activities brings out his leadership skills, as he drives most of them from the front. As a pragmatic leader and a realist, he can grasp ideas in a holistic manner and still pay attention to minor details. Tulsi is known as diligent and personable — two qualities that define him completely. As a creative thinker who possesses a can-do attitude, Tulsi Mishra is a pleasure to work with. I recommend him for a software professional who also possesses strong business acumen, at any organisation that chooses to take benefit from his diverse skills.</p>
-          <div class="t-person">
-            <div class="t-avatar">NC</div>
-            <div class="t-person-info">
-              <div class="t-name">Nilesh Chopadkar</div>
-              <div class="t-role">Senior Business Analyst · Banking Circle &nbsp;·&nbsp; <em>Tata Consultancy Services</em></div>
-            </div>
-            <span class="t-relation">Direct Manager</span>
-          </div>
-        </div>
-
-        <!-- 2 · Leslie Tung -->
+        <!-- 1 · Leslie Tung -->
         <div class="t-card">
           <div class="t-quote-mark">"</div>
           <p class="t-text">Tulsi Mishra is a valued member of the product management team. He is always ready for a new challenge and has the analytical skills to drive to solution. He is a lifelong learner who pursues technical areas that are of interest to him and may have current and future relevance to his career. Tulsi is a strong team player and team leader. I have enjoyed working with him and appreciate his positive spirit to strive for better.</p>
@@ -349,11 +343,11 @@
               <div class="t-name">Leslie Tung</div>
               <div class="t-role">Product Management · Hewlett Packard Enterprise</div>
             </div>
-            <span class="t-relation">Colleague</span>
+            <span class="t-relation">Manager &amp; Mentor</span>
           </div>
         </div>
 
-        <!-- 3 · Terence Yu -->
+        <!-- 2 · Terence Yu -->
         <div class="t-card">
           <div class="t-quote-mark">"</div>
           <p class="t-text">I had the opportunity to work with Tulsi this summer when he interned for Vantage West. He is a great individual to work with and is always proactive. He has a sense of collaboration and his project management skills are praiseworthy. I wish Tulsi all the best for his future endeavors.</p>
@@ -392,6 +386,20 @@
               <div class="t-role">PR Collaborator &amp; Strategic Thought Leader · Vantage West Credit Union</div>
             </div>
             <span class="t-relation">Senior Colleague</span>
+          </div>
+        </div>
+
+        <!-- 5 · Nilesh Chopadkar -->
+        <div class="t-card">
+          <div class="t-quote-mark">"</div>
+          <p class="t-text">I have had the privilege of working with Tulsi Mishra for more than 2 years. Through these years I have seen Tulsi grow — both as a software professional and a human being. Tulsi is an exceptional communicator. During the days we were working on the Fee Billing Project, he had built an impeccable rapport with the client. It was his exceptional analytical ability that put the client in a comfort zone as far as quality of the product was concerned. He has received many client appreciations for his brilliant work ethics. His involvement in various CSR activities brings out his leadership skills, as he drives most of them from the front. As a pragmatic leader and a realist, he can grasp ideas in a holistic manner and still pay attention to minor details. Tulsi is known as diligent and personable — two qualities that define him completely. As a creative thinker who possesses a can-do attitude, Tulsi Mishra is a pleasure to work with. I recommend him for a software professional who also possesses strong business acumen, at any organisation that chooses to take benefit from his diverse skills.</p>
+          <div class="t-person">
+            <div class="t-avatar">NC</div>
+            <div class="t-person-info">
+              <div class="t-name">Nilesh Chopadkar</div>
+              <div class="t-role">Senior Business Analyst · Banking Circle &nbsp;·&nbsp; <em>Tata Consultancy Services</em></div>
+            </div>
+            <span class="t-relation">Direct Manager</span>
           </div>
         </div>
 
