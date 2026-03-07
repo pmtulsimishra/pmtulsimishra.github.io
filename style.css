@@ -80,7 +80,8 @@ a { text-decoration: none; color: inherit; }
   font-weight: 900;
   font-size: 0.8rem;
   letter-spacing: -0.5px;
-  font-family: var(--font);
+  font-family: var(--font-display);
+  font-style: italic;
   box-shadow: 0 4px 14px rgba(15,98,254,0.28);
   flex-shrink: 0;
   transition: var(--transition);
@@ -1326,13 +1327,33 @@ cite#stoic-author {
 }
 
 /* ===========================
-   HERO BACKGROUND RADIAL GLOW
+   HERO — DARK BACKGROUND
    =========================== */
 #hero {
   background:
-    radial-gradient(ellipse 900px 600px at 80% 35%, rgba(15,98,254,0.055) 0%, transparent 60%),
-    radial-gradient(ellipse 700px 500px at 10% 85%, rgba(105,41,196,0.065) 0%, transparent 60%),
-    white;
+    radial-gradient(ellipse 800px 500px at 75% 40%, rgba(105,41,196,0.18) 0%, transparent 55%),
+    radial-gradient(ellipse 600px 400px at 15% 70%, rgba(15,98,254,0.15) 0%, transparent 55%),
+    linear-gradient(160deg, #0d0d22 0%, #18083a 100%);
+}
+
+/* Hero text on dark bg */
+#hero h1                { color: #ffffff; }
+#hero .hero-sub         { color: rgba(255,255,255,0.76); }
+#hero .hero-meta        { color: rgba(255,255,255,0.60); }
+#hero .hero-badge {
+  background: rgba(255,255,255,0.10);
+  color: rgba(255,255,255,0.88);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+#hero .btn-outline {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.3);
+  color: white;
+}
+#hero .btn-outline:hover {
+  background: rgba(255,255,255,0.16);
+  border-color: white;
+  color: white;
 }
 
 /* ===========================
