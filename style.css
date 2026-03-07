@@ -40,14 +40,16 @@ a { text-decoration: none; color: inherit; }
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
+  background: rgba(13,13,34,0.78);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
   transition: var(--transition);
 }
 
 #navbar.scrolled {
-  box-shadow: 0 2px 24px rgba(0,0,0,0.08);
+  background: rgba(13,13,34,0.96);
+  box-shadow: 0 2px 28px rgba(0,0,0,0.30);
 }
 
 .nav-inner {
@@ -101,7 +103,7 @@ a { text-decoration: none; color: inherit; }
 .nav-links a {
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--text-muted);
+  color: rgba(255,255,255,0.72);
   transition: var(--transition);
   position: relative;
 }
@@ -117,7 +119,7 @@ a { text-decoration: none; color: inherit; }
   border-radius: 1px;
 }
 
-.nav-links a:hover { color: var(--primary); }
+.nav-links a:hover { color: #ffffff; }
 .nav-links a:hover::after { transform: scaleX(1); }
 
 .nav-toggle { display: none; }
@@ -383,19 +385,19 @@ a { text-decoration: none; color: inherit; }
 
 .floating-card {
   position: absolute;
-  /* Cloud-like: frosted glass pill */
-  background: rgba(255,255,255,0.82);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.55);
+  /* Cloud-like: bright frosted glass pill */
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.80);
   border-radius: 999px;
-  padding: 0.55rem 1.1rem;
-  font-size: 0.78rem;
-  font-weight: 600;
+  padding: 0.5rem 1rem;
+  font-size: 0.76rem;
+  font-weight: 700;
   display: flex;
   align-items: center;
-  gap: 0.45rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06);
+  gap: 0.4rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.22), 0 2px 8px rgba(0,0,0,0.10), 0 0 0 1px rgba(255,255,255,0.5);
   animation: float 4s ease-in-out infinite;
   white-space: nowrap;
   color: var(--text);
@@ -403,13 +405,13 @@ a { text-decoration: none; color: inherit; }
 
 .floating-card .fc-icon { font-size: 1rem; }
 
-/* Pulled in closer to the circle (was -22% to -24%) */
-.fc1 { top: 3%;  left: -10%;  animation-delay: 0s; }    /* top-left:    PMP Certified */
-.fc4 { top: 3%;  right: -10%; animation-delay: 1.8s; }  /* top-right:   Avid Reader */
-.fc3 { top: 43%; left: -12%;  animation-delay: 0.7s; }  /* mid-left:    Product Leader */
-.fc2 { top: 43%; right: -10%; animation-delay: 1.3s; }  /* mid-right:   Cloud Expert */
-.fc5 { top: 76%; left: -8%;   animation-delay: 2.4s; }  /* bottom-left: Fitness Enthusiast */
-.fc6 { top: 76%; right: -10%; animation-delay: 3.1s; }  /* bottom-right: Dog Lover */
+/* Positioned at ring clock-face borders — ring 220px centered in 360px hero-visual */
+.fc1 { top: 28%;  left: -12%;  animation-delay: 0s; }    /* 10 o'clock:  Lifelong Learner */
+.fc4 { top: 28%;  right: -12%; animation-delay: 1.8s; }  /* 2 o'clock:   Avid Reader */
+.fc3 { top: 44%;  left: -18%;  animation-delay: 0.7s; }  /* 9 o'clock:   Product Leader */
+.fc2 { top: 44%;  right: -14%; animation-delay: 1.3s; }  /* 3 o'clock:   Cloud Expert */
+.fc5 { top: 61%;  left: -16%;  animation-delay: 2.4s; }  /* 8 o'clock:   Fitness Enthusiast */
+.fc6 { top: 61%;  right: -10%; animation-delay: 3.1s; }  /* 4 o'clock:   Dog Lover */
 
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
@@ -1421,10 +1423,7 @@ cite#stoic-author {
    HERO — DARK BACKGROUND
    =========================== */
 #hero {
-  background:
-    radial-gradient(ellipse 800px 500px at 75% 40%, rgba(105,41,196,0.18) 0%, transparent 55%),
-    radial-gradient(ellipse 600px 400px at 15% 70%, rgba(15,98,254,0.15) 0%, transparent 55%),
-    linear-gradient(160deg, #0d0d22 0%, #18083a 100%);
+  background: linear-gradient(160deg, #0d0d22 0%, #18083a 100%);
 }
 
 /* Hero text on dark bg */

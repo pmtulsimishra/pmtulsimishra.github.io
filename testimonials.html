@@ -38,23 +38,6 @@
     /* Body background = dark so no white ever bleeds around the hero */
     body { background: #0d0d22; }
 
-    /* Match navbar to dark hero — seamless top */
-    #navbar {
-      background: rgba(13, 13, 34, 0.92);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom-color: rgba(255,255,255,0.08);
-    }
-    #navbar.scrolled {
-      background: rgba(13, 13, 34, 0.97);
-      box-shadow: 0 2px 24px rgba(0,0,0,0.3);
-    }
-    #navbar .nav-links a { color: rgba(255,255,255,0.72); }
-    #navbar .nav-links a:hover { color: #ffffff; }
-    /* Keep dropdown panel text dark (white bg panel on dark navbar) */
-    #navbar .nav-dropdown-menu { background: rgba(255,255,255,0.97); }
-    #navbar .nav-dropdown-menu li a { color: var(--text-muted); }
-    #navbar .nav-dropdown-menu li a:hover { color: var(--primary); }
 
     .t-hero::before {
       content: '';
