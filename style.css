@@ -148,7 +148,8 @@ a { text-decoration: none; color: inherit; }
 
 .nav-dropdown-menu {
   position: absolute;
-  top: calc(100% + 14px);
+  /* Start at 100% — no gap — gap is created by padding-top so hover is unbroken */
+  top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(-6px);
   background: rgba(255,255,255,0.97);
@@ -157,7 +158,8 @@ a { text-decoration: none; color: inherit; }
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   box-shadow: 0 8px 32px rgba(0,0,0,0.10);
-  padding: 0.45rem 0;
+  /* padding-top creates visual gap; transparent area keeps hover alive */
+  padding: 14px 0 0.45rem;
   min-width: 192px;
   list-style: none;
   margin: 0;
@@ -174,11 +176,11 @@ a { text-decoration: none; color: inherit; }
   padding: 0;
 }
 
-/* little caret pointer */
+/* little caret pointer — sits inside the padding-top gap */
 .nav-dropdown-menu::before {
   content: '';
   position: absolute;
-  top: -6px;
+  top: 8px;
   left: 50%;
   transform: translateX(-50%);
   border-left: 6px solid transparent;
@@ -188,7 +190,7 @@ a { text-decoration: none; color: inherit; }
 .nav-dropdown-menu::after {
   content: '';
   position: absolute;
-  top: -5px;
+  top: 9px;
   left: 50%;
   transform: translateX(-50%);
   border-left: 6px solid transparent;
