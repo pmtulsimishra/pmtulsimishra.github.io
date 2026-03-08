@@ -499,9 +499,9 @@ section { padding: 6rem 2rem; }
 
 .about-gallery img {
   width: 100%;
-  height: 140px;
+  height: 210px;
   object-fit: cover;
-  object-position: center 40%;
+  object-position: center center;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   transition: transform 0.3s ease;
@@ -515,7 +515,14 @@ section { padding: 6rem 2rem; }
 
 /* Show faces at top of frame */
 .about-gallery img.face-top {
-  object-position: center top;
+  object-position: center 20%;
+}
+
+/* Portrait photo (dogs) — show full image without cropping sides */
+.about-gallery img.portrait {
+  object-fit: contain;
+  object-position: center center;
+  background: #f0f0f8;
 }
 
 .about-stats-mini {
@@ -1179,9 +1186,9 @@ footer {
 .travel-photos img,
 .gym-photos img {
   width: 100%;
-  height: 90px;
+  height: 140px;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center center;
   display: block;
   transition: transform 0.3s ease;
 }
@@ -1583,7 +1590,7 @@ cite#stoic-author {
 
 @media (max-width: 768px) {
   .about-gallery { grid-template-columns: repeat(4, 1fr); }
-  .about-gallery img { height: 110px; }
+  .about-gallery img { height: 160px; }
 }
 
 @media (max-width: 480px) {
@@ -1595,7 +1602,7 @@ cite#stoic-author {
   .stoic-pillars { grid-template-columns: repeat(2, 1fr); }
   .gym-photos { grid-template-columns: 1fr; }
   .about-gallery { grid-template-columns: repeat(2, 1fr); }
-  .about-gallery img { height: 100px; }
+  .about-gallery img { height: 160px; }
 }
 
 @media (max-width: 1024px) {
