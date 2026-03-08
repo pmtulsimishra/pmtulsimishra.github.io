@@ -1419,7 +1419,7 @@ cite#stoic-author {
   background: none;
   border: none;
   font-size: 1.4rem;
-  color: var(--text);
+  color: rgba(255,255,255,0.85);
   cursor: pointer;
 }
 
@@ -1537,6 +1537,14 @@ cite#stoic-author {
     border-bottom: 1px solid var(--border);
     box-shadow: 0 8px 32px rgba(0,0,0,0.08);
     gap: 1.25rem;
+  }
+
+  /* Mobile menu is white — override global white link color back to dark */
+  .nav-links.open a {
+    color: var(--text-muted);
+  }
+  .nav-links.open a:hover {
+    color: var(--primary);
   }
 
   .edu-grid { grid-template-columns: 1fr; }
